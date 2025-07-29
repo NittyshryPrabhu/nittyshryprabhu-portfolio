@@ -1,0 +1,421 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nittyshry Prabhu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">Nittyshry Prabhu</a>
+            </div>
+
+            
+            <!-- Navigation Menu -->
+            <nav id="nav" class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <!-- <li><a href="#hire" class="cta">Hire Me</a></li> -->
+                </ul>
+            </nav>
+
+            <!-- Hamburger Icon for Mobile -->
+            <div id="hamburger" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+ <style>
+        #output {
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 40px;
+            white-space: pre-wrap; /* Preserve spaces and line breaks */
+           
+        }
+    </style>
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+    const text = "Hi, I'm Nittyshry Prabhu.\nA Engineering Student\nWriter\n Imagineer ";
+    const outputElement = document.getElementById("output");
+    let index = 0;
+    const speed = 100;  // Speed in milliseconds
+
+    function typeWriter() {
+        if (index < text.length) {
+            const currentChar = text.charAt(index);
+            outputElement.innerHTML += currentChar === '\n' ? "<br>" : currentChar;
+            index++;
+            setTimeout(typeWriter, speed);
+        } else {
+            setTimeout(() => {
+                outputElement.innerHTML = "";
+                index = 0;
+                typeWriter();
+            }, 2000); // Delay before repeating (2 seconds)
+        }
+    }
+
+    typeWriter();
+</script>
+
+            
+                <!-- <h1>Hi, I'm Nittyshry Prabhu</h1>
+                <p style="color: white;">A Engineering Student <br> Writer <br> Imagineer <br> </p>
+                <button id="cta-btn">Explore My Work</button> -->
+            </div>
+         
+            <!-- <div class="hero-image">
+                <img style="border-radius: 250px;"  src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIaOtWootPjXOSl7_Y2khFOq67vfg3lWECRywInYhv6NQ2_fhCc6htjVNznMoB8N9JnheTXbDYRdbGupMc-Ge_fljy4y2zcF2svYziXX7NV3IEIoSRyWfbUiXSaDk5ZIEiiPErPmlRVwtVMmX520wn-MFBbi7ME0OvFOqn7r7J8eZTy8kcEboHG4hdi1o/s2202/1734058724653%20(1).jpg" alt="Nittyshry Prabhu">
+            </div> -->
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-text">
+                <h2 >About Me</h2>
+                <!-- <p style="color: black; text-align: start; text-align: end; text-align: left; text-align: right; text-align: center; text-align: justify;" > <b>I am Nitishri Prabhu, born on January 28, 2005 in Bhagalpur, Bihar, India. I am a passionate writer, creative visionary and aspiring engineer with a unique blend of analytical thinking and imaginative storytelling.
+<br>
+I balanced academic rigor (engineering degree) with a deep love for literature and creative expression, constantly pushing the boundaries of my intellectual and creative pursuits. I completed my high school and secondary higher education from my village (Bhramarpur, Bhagalpur). I then moved to Delhi for graduation and am pursuing Bachelor of Computer Science [AI & ML] from MIT (affiliated to Dr. A.P.J. Abdul Kalam Technical University, Lucknow). </b><br>
+
+I have written two books so far. <hr> <br><br>
+1. A Diary [ A Lot Word ] <br>
+2. Slip of Mind's Pen
+</p> -->
+
+
+<p style="color: black; text-align: start; text-align: end; text-align: left; text-align: right; text-align: center; text-align: justify;"><b>Nittyshry Prabhu</b><br>
+
+Born on January 28, 2005, in Bhagalpur, Bihar, India.
+
+Currently pursuing B.Tech in Computer Science and Engineering (AI & ML) from a college in Delhi affiliated with Dr. A.P.J. Abdul Kalam Technical University, Lucknow.
+
+
+
+He identifies as a passionate writer, creative imagineer, and aspiring engineer, balancing analytical and literary pursuits.
+
+<br>
+<br>
+<b>His Writings & Creative Side</b>-<br>
+
+Nittyshry is active in creative writing, authoring several blog posts and literary pieces, such as:
+<br>
+
+<b>“Behind the Beautiful Lady”</b> – an autobiographical piece highlighting his mother’s support and personal dreams and struggles.
+
+<br>
+<br>
+
+Essays like <b>“Undiscovered Me”</b>, <b>“Mitti Ki Khushboo”</b>, and <b>“The Process of Our Birth”</b>, reflecting philosophical introspection, identity exploration, and emotional storytelling.
+
+
+His writing indicates thoughtful reflection on self‑discovery, family bonds, and creative expression.
+<br>
+<br>
+<b>Academic Focus & Aspirations</b>-<br>
+
+Studied in his home village of Bhramarpur up through high school; then relocated to Delhi for his undergraduate studies.
+
+
+He shows a strong interest in technology (AI/ML), but is also deeply invested in creative and literary themes.
+
+His mother’s encouragement plays a central role in his ambition and resilience.
+
+<br><br>
+
+ Nittyshry Prabhu has written two books so far. <hr> <br><br>
+1. A Diary [ A Lot Word ] <br>
+2. Slip of Mind's Pen
+</p>
+
+<hr>
+
+                <!-- <p>With several years of experience in developing web applications, I strive to build beautiful and user-friendly web experiences.</p> -->
+                <!-- <button id="see-more-btn">See More</button>
+                <div id="more-text" class="more-text">
+                    <p>In my free time, I contribute to open-source projects and stay up to date with the latest web trends. I believe in continuous learning and enjoy experimenting with new technologies to see how they can improve the user experience.</p>
+                </div> -->
+            </div>
+
+            <div class="about-image">
+                <img  src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIaOtWootPjXOSl7_Y2khFOq67vfg3lWECRywInYhv6NQ2_fhCc6htjVNznMoB8N9JnheTXbDYRdbGupMc-Ge_fljy4y2zcF2svYziXX7NV3IEIoSRyWfbUiXSaDk5ZIEiiPErPmlRVwtVMmX520wn-MFBbi7ME0OvFOqn7r7J8eZTy8kcEboHG4hdi1o/s2202/1734058724653%20(1).jpg" alt="Nittyshry Prabhu" id="profile-image">
+            </div>
+        </div>
+    </section>
+
+   
+
+ </section>
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 >My Work</h2>
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+             <a href="https://github.com/NittyshryPrabhu">   <div class="portfolio-item" data-project="1">
+                    <img  src="https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png" alt="Project 1" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>GitHub Page</h3>
+                        <!-- <p>Web Application</p> -->
+                    </div>
+                </div></a>
+
+                <!-- Portfolio Item 2 -->
+              <a href="https://nittyshryprabhu.blogspot.com/"> <div class="portfolio-item" data-project="2">
+                    <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4u_gG0ZMJDJap3ewpcGxMTc6nLsl-oNUaLcwKeGQlkggKTLhzRmzNUDvqzSKhMoKBg5g&usqp=CAU" alt="Project 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Blogger Page</h3>
+                        <!-- <p>Landing Page</p> -->
+                    </div>
+                </div></a> 
+
+                <!-- Portfolio Item 3 -->
+               <a href="https://www.linkedin.com/in/nittyshry-prabhu-74a479288/"> <div class="portfolio-item" data-project="3">
+                    <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVZ7ih0RMvWGQ4X98WXAZofSI-cGiWSFs-5Q&s" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Linkedin Page</h3>
+                        <!-- <p>E-commerce Website</p> -->
+                    </div>
+                </div></a>
+
+
+                  <!-- Portfolio Item 4 -->
+               <a href="https://nittyshryprabhu.github.io/NRVP.Project/"> <div class="portfolio-item" data-project="3">
+                    <img  src="create an image for .png" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>NRVP Project</h3>
+                        <!-- <p>E-commerce Website</p> -->
+                    </div>
+                </div></a>
+
+
+
+
+
+
+
+                <!-- Portfolio Item 4
+                <div class="portfolio-item" data-project="4">
+                    <img src="project4.jpg" alt="Project 4" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Project 4</h3>
+                        <p>Personal Blog</p>
+                    </div>
+                </div> -->
+            <!-- </div>
+            <button id="see-more-works" class="cta-btn">See More</button>
+        </div> -->
+
+     
+    </section>
+
+    <!-- Modal to display more details (popup) -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h2 id="modal-title">Project Title</h2>
+            <img id="modal-image" src="" alt="Project Image">
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+<!-- 
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2>What Clients Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial" id="testimonial1">
+                    <div class="testimonial-img">
+                        <img src="client1.jpg" alt="Client 1">
+                    </div>
+                    <p class="testimonial-text">
+                        "Jane has done an outstanding job with my website. She is highly skilled, very responsive, and delivered exactly what I needed. I'll definitely work with her again!"
+                    </p>
+                    <p class="testimonial-name">John Doe, CEO of Company X</p>
+                </div>
+
+                <div class="testimonial" id="testimonial2">
+                    <div class="testimonial-img">
+                        <img src="client2.jpg" alt="Client 2">
+                    </div>
+                    <p class="testimonial-text">
+                        "The website designed by Jane is truly amazing! It's user-friendly, visually appealing, and highly functional. I love how everything turned out."
+                    </p>
+                    <p class="testimonial-name">Samantha Smith, Founder of Startup Y</p>
+                </div>
+
+                <div class="testimonial" id="testimonial3">
+                    <div class="testimonial-img">
+                        <img src="client3.jpg" alt="Client 3">
+                    </div>
+                    <p class="testimonial-text">
+                        "Jane helped my business grow with her web design expertise. She’s incredibly talented and understands exactly what your business needs to succeed online."
+                    </p>
+                    <p class="testimonial-name">Michael Brown, Marketing Director</p>
+                </div>
+            </div>
+
+            <div class="testimonial-controls">
+                <button id="prev-btn" class="testimonial-btn">Previous</button>
+                <button id="next-btn" class="testimonial-btn">Next</button>
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <div class="blog-item" data-id="1">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvs2oM4S7WJzL29f-wA5NIL0Cc5sCF_2Ssi8PEqb5glUVdzbSJ_S-ajHc2X2L9UjobvBmR9DELaze7G2K4zEHG5th0D5LrImog0FDg6V1nLo8McTGtyKF34kKJFNadaHJ_yQ0JbJZp2xL-SnGUClAiAGOYvK_2W4YyVRrqmTFz9SfRUY9CQ17cyeN28REk/s2048/Gemini_Generated_Image_udripludripludr%201.JPG" alt="Blog 1" class="blog-img">
+                    <div class="blog-info">
+                        <h3>Behind The Beautiful Lady</h3>
+                        <span class="blog-date">October 21, 2024</span>
+                        <p class="blog-description">
+                            "Behind the Beautiful Lady" is an autobiography of me and my mother about how a mother nurtures the courage and achievement of her son.
+
+Wr : Nittyshry Prabhu (Nitish)
+                        </p>
+                        <a href="https://nittyshryprabhu.blogspot.com/2024/10/behind-beautiful-lady.html" class="blog-read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-item" data-id="2">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYP-1guGphSKvTqRpR3QGEimfH6g6Dltyd-RzRDvqx_cPJNykZs15ZBi_NioWFe03mflI5P82X6fKmybri1yFvpK0l4ccvw_-7hD7CWb9Iapmf1-a8fvrBi9cHhQXUr9KylOz7iWLWpRz_LdTw2cNIAe7oUnH3qTOaGgdLI004jbQjkjMOyd-DU7VDjFr4/s1024/three%20young%20girls%20thinking%20deeply%20in%20Indian%20attire.png" alt="Blog 2" class="blog-img">
+                    <div class="blog-info">
+                        <h3>If I Do It</h3>
+                        <span class="blog-date">October 29, 2024</span>
+                        <p class="blog-description">
+                            "If I Do It" is a heart-felt voice written by Nittyshry Prabhu. In which there is a voice of a girl when a boy misbehaves with her. She says, "If I do it, what will happen to you boys? Will you be able to stay safe? Will you be able to urinate on the roadside? Will you be able to look into the eyes of girls?"
+                        </p>
+                        <a href="https://nittyshryprabhu.blogspot.com/2024/10/if-i-do-it.html" class="blog-read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-item" data-id="3">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhB0YwL9tV1GnKPbfEFls_5Cvdc3biLECousSkog5gtK6mt_a_cM9qsPzXNU-bxsNCYBqVYXqm9E-liCLhyphenhyphenZ8CVQj5vjapm3GA8ROqp81ueMnLC1VUCZz-muo0xwxrZKWgajdX41oX0UDy7rsu2VemBRUjANgJl61a_e-NQSbkKBmkFAK_WoV2ExnRbQ-ln/s278/two-lovers-couple-man-woman-260nw-559103020.PNG" alt="Blog 3" class="blog-img">
+                    <div class="blog-info">
+                        <h3>Fantasy Romance in the Bathroom
+                        </h3>
+                        <span class="blog-date">October 26, 2024</span>
+                        <p class="blog-description">
+                            "Fantasy Romance in the Bathroom" is a fantasy emotional poem written by Nittyshry Prabhu. In this poem, when the poet goes to the bathroom to take a bath, he sometimes feels his imaginary lover and sometimes God with him.
+                        </p>
+                        <a href="https://nittyshryprabhu.blogspot.com/2024/10/fantasy-romance-in-bathroom.html" class="blog-read-more">Read More</a>
+                    </div>
+                </div>
+            <!-- </div>
+
+            <button id="see-more-btn" class="cta-btn">See More Posts</button>
+        </div> -->
+
+        <button id="see-more-btn">See More</button>
+<div id="more-text" style="display: none;">
+    <!-- Hidden content here -->
+</div>
+
+<div class="blog-grid">
+    <!-- Blog posts will go here -->
+</div>
+    </section>
+<!-- 
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you have any questions or want to work together, feel free to reach out! I'd love to hear from you.</p>
+
+            <form id="contact-form" class="contact-form" action="#" method="POST">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn" class="cta-btn">Send Message</button>
+                <div id="success-msg" class="success-message">Your message has been sent successfully!</div>
+            </form>
+        </div>
+    </section> -->
+
+
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Contact Information Section -->
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:example@example.com">nittyshryprabhu@gmail.com</a></li>
+                        <li><strong>Phone:</strong> <a href="tel:+123456789">+91 7739797140</a></li>
+                        <li><strong>Address:</strong> MIT D Block, Meerut,Uttar Pradesh</li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Links Section -->
+                <div class="footer-social">
+                    <h3>Follow Me</h3>
+                    <ul class="social-links">
+                        <li><a href="https://github.com/NittyshryPrabhu" target="_blank" class="social-icon">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/nittyshry-prabhu-74a479288/" target="_blank" class="social-icon">LinkedIn</a></li>
+                        <li><a href="https://x.com/NittyshryPrabhu" target="_blank" class="social-icon">Twitter</a></li>
+                       
+                        <li><a href="https://www.facebook.com/profile.php?id=61565865762624" target="_blank" class="social-icon">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/nittyshryprabhu/" target="_blank" class="social-icon">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Navigation Section -->
+                <div class="footer-nav">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="https://nittyshryprabhu.blogspot.com/">Blog Website</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nittyshry Prabhu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+  
+</body>
+</html>
