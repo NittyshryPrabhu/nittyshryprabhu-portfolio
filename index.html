@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nittyshry Prabhu | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="portfolio-header">
+        <div class="header-name">Nittyshry Prabhu</div>
+
+        <nav class="header-nav" id="headerNav">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#work">My Work</a>
+            <a href="#social">My Social Page</a>
+        </nav>
+
+        <div class="header-info">
+            Last Update : 30-09-2025
+        </div>
+
+        <button class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <section class="hero-section">
+        <div class="carousel-container">
+            <div class="carousel-slide fade">
+                <section class="hero-typing-section" id="home" >
+                    <div class="typing-container" style="margin-top: -100px;">
+                        <pre id="typed-text"></pre><span class="typing-cursor"></span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="carousel-slide fade">
+                <div class="card">
+                    <img src="image/image2.png"
+                        alt="Mobile app interface concept with dark mode and vibrant accent colors." loading="lazy">
+                </div>
+                <div class="slide-caption">See the world as it is</div>
+            </div>
+
+            <div class="carousel-slide fade">
+                <video playsinline autoplay muted loop poster="images/video-fallback.jpg" id="bgVideo">
+                    <source src="video/video_20250928_070435~3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="work-section">
+        <h2 class="section-heading">My Work</h2>
+
+        <div class="work-grid">
+
+            <div class="work-card data-card" data-id="latest">
+                <div class="card-image-wrapper">
+                    <img src="images/placeholder-latest.jpg" alt="Image showing a modern website UI." loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Latest Work</h3>
+                    <p class="card-description">
+                        A recent project focusing on modern UI/UX design for a startup client. This showcases my current
+                        skill level and design philosophy.
+                    </p>
+                    <a href="#" class="card-link">View Project &rarr;</a>
+                </div>
+            </div>
+
+            <div class="work-card data-card" data-id="completed">
+                <div class="card-image-wrapper">
+                    <img src="images/placeholder-completed.jpg" alt="Image of a full-stack application dashboard."
+                        loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Completed Work</h3>
+                    <p class="card-description">
+                        Archived projects demonstrating diverse skills in full-stack development and complex system
+                        integrations built using various frameworks.
+                    </p>
+                    <a href="#" class="card-link">Browse Archive &rarr;</a>
+                </div>
+            </div>
+
+            <div class="work-card data-card" data-id="writing">
+                <div class="card-image-wrapper">
+                    <img src="images/placeholder-writing.jpg"
+                        alt="Image showing clean documentation or a technical blog." loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Writing Related</h3>
+                    <p class="card-description">
+                        Collection of technical articles, blog posts, and documentation written to explain complex
+                        concepts with clarity and precision.
+                    </p>
+                    <a href="#" class="card-link">Read Articles &rarr;</a>
+                </div>
+            </div>
+
+            <div class="work-card data-card" data-id="education">
+                <div class="card-image-wrapper">
+                    <img src="images/placeholder-education.jpg" alt="Image symbolizing a graduation cap or certificate."
+                        loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Educational Journey</h3>
+                    <p class="card-description">
+                        Key academic achievements, certifications, and major capstone projects completed during my
+                        formal learning path and ongoing studies.
+                    </p>
+                    <a href="#" class="card-link">See Milestones &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section class="social-section">
+        <h2 class="section-heading">My Social Platform</h2>
+
+        <div class="social-grid">
+
+            <div class="social-card" data-platform="instagram">
+                <div class="platform-icon">📸</div>
+                <h3 class="platform-name">Instagram</h3>
+                <p class="platform-tagline">My visual journey and design inspiration.</p>
+                <a href="#" class="social-link instagram-btn">Follow &rarr;</a>
+            </div>
+
+            <div class="social-card" data-platform="facebook">
+                <div class="platform-icon">👥</div>
+                <h3 class="platform-name">Facebook</h3>
+                <p class="platform-tagline">Connect with me personally and professionally.</p>
+                <a href="#" class="social-link facebook-btn">Connect &rarr;</a>
+            </div>
+
+            <div class="social-card" data-platform="linkedin">
+                <div class="platform-icon">💼</div>
+                <h3 class="platform-name">LinkedIn</h3>
+                <p class="platform-tagline">Professional portfolio and career updates.</p>
+                <a href="#" class="social-link linkedin-btn">Connect &rarr;</a>
+            </div>
+
+            <div class="social-card" data-platform="blog">
+                <div class="platform-icon">✍️</div>
+                <h3 class="platform-name">BlogPage</h3>
+                <p class="platform-tagline">Deep dives into technology and industry trends.</p>
+                <a href="#" class="social-link blog-btn">Read Posts &rarr;</a>
+            </div>
+
+            <div class="social-card" data-platform="behance">
+                <div class="platform-icon">🎨</div>
+                <h3 class="platform-name">Behance</h3>
+                <p class="platform-tagline">Showcasing my full design projects and mockups.</p>
+                <a href="#" class="social-link behance-btn">View Work &rarr;</a>
+            </div>
+
+            <div class="social-card" data-platform="medium">
+                <div class="platform-icon">📰</div>
+                <h3 class="platform-name">Medium</h3>
+                <p class="platform-tagline">Thought leadership and extended technical articles.</p>
+                <a href="#" class="social-link medium-btn">Read Articles &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <footer class="portfolio-footer">
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <span class="brand-name">My Name</span>
+            </div>
+
+            <div class="footer-nav">
+                <a href="#home" class="footer-link">Home</a>
+                <a href="#about" class="footer-link">About Me</a>
+                <a href="#work" class="footer-link">My Work</a>
+                <a href="#social" class="footer-link">My Social Platform</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>Contact Me:</p>
+                <a href="mailto:hello@myportfolio.com" class="contact-link">hello@myportfolio.com</a>
+
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram Profile" class="social-icon">📸</a>
+                    <a href="#" aria-label="LinkedIn Profile" class="social-icon">💼</a>
+                    <a href="#" aria-label="Behance Profile" class="social-icon">🎨</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 My Name. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

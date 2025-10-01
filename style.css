@@ -1,0 +1,942 @@
+/* Base Reset and Font */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #007bff;
+    --font-family: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+
+/* --------------------
+    HEADER STYLES
+-------------------- */
+
+.portfolio-header {
+    /* Sticky Top Bar */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+
+    /* Layout */
+    display: flex;
+    justify-content: space-between; /* Space out the three main elements */
+    align-items: center; /* Vertically align items */
+
+    /* Styling */
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0; /* Subtle separator */
+    padding: 15px 30px; /* Good vertical and horizontal spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Minimal shadow for depth */
+    min-height: 60px; /* Minimum height for visual comfort */
+}
+
+/* Left Side: Name */
+.header-name {
+    font-size: 1.5rem; /* Large and readable */
+    font-weight: 700; /* Bold */
+    letter-spacing: -0.5px;
+    color: var(--primary-color);
+}
+
+/* Center: Navigation Menu */
+.header-nav {
+    display: flex;
+    gap: 30px; /* Spacing between menu items */
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 0; /* Padding for hover effect area */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    /* Subtle Hover Effect */
+    border-bottom: 2px solid transparent; /* Base for the hover effect */
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Right Side: Update Info */
+.header-info {
+    font-size: 0.85rem;
+    color: #6a6a6a; /* Muted color for secondary information */
+}
+
+/* --------------------
+    HAMBURGER MENU
+-------------------- */
+
+/* Hide by default on large screens */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001; /* Above the nav on mobile */
+}
+
+.bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --------------------
+    RESPONSIVENESS (Mobile/Tablet View)
+-------------------- */
+
+@media (max-width: 768px) {
+    .portfolio-header {
+        padding: 15px 20px;
+    }
+
+    /* Show hamburger icon */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide update info on smaller screens to save space */
+    .header-info {
+        display: none;
+    }
+    
+    /* Collapse Navigation Menu */
+    .header-nav {
+        /* Position off-screen by default */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%; /* Take up 60% of the screen width */
+        height: 100vh; /* Full screen height */
+        flex-direction: column; /* Stack links vertically */
+        background-color: #ffffff;
+        padding: 80px 20px 20px;
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out;
+        gap: 20px; /* Spacing for vertical links */
+        /* Hide content that exceeds the height, though 100vh should prevent this */
+        overflow-y: auto;
+    }
+
+    /* When the menu is open (class added by JS) */
+    .header-nav.open {
+        transform: translateX(0); /* Slide into view */
+    }
+
+    .header-nav a {
+        font-size: 1.2rem;
+        padding: 10px 0;
+        border-bottom: none; /* Remove horizontal border styling for mobile */
+    }
+
+    .header-nav a:hover {
+        padding-left: 5px; /* Add a subtle shift on hover */
+    }
+
+    /* Hamburger Animation to 'X' */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+
+/* Ensure the root variables from the header CSS are present or defined here */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #007bff;
+    --font-family: 'Inter', sans-serif;
+}
+
+/* --------------------
+    HERO SECTION STYLES
+-------------------- */
+
+.hero-section {
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--secondary-color); /* Light background for contrast */
+    text-align: center;
+}
+
+.carousel-container {
+    max-width: 1100px; /* Max width for large screens, centered */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    height: 380px; /* Desktop height requirement (300-400px) */
+    border-radius: 12px;
+}
+
+/* Slide Content Container (The Card) */
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.card {
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image scales without distortion */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.02); /* Slight hover zoom for interactivity */
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    z-index: 5;
+}
+
+/* --------------------
+    NAVIGATION (Arrows)
+-------------------- */
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white; /* Contrast color */
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    
+}
+
+.prev {
+    left: 10px;   /* position arrow inside left side */
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 10px;  /* position arrow inside right side */
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* --------------------
+    INDICATORS (Dots)
+-------------------- */
+
+.dot-container {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: var(--accent-color);
+}
+
+/* --------------------
+    CAROUSEL TRANSITION
+-------------------- */
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4 }
+    to { opacity: 1 }
+}
+
+
+/* --------------------
+    RESPONSIVENESS
+-------------------- */
+
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 250px; /* Reduced height for mobile */
+    }
+    
+    .carousel-slide {
+        padding: 10px; /* Reduce internal padding */
+    }
+
+    .prev, .next {
+        font-size: 18px; /* Smaller arrows */
+        padding: 10px;
+    }
+    
+    .slide-caption {
+        font-size: 0.9rem; /* Smaller caption text */
+        bottom: 20px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 200px; 
+    }
+    
+    .slide-caption {
+        display: none; /* Hide caption on very small screens to keep design clean */
+    }
+}
+
+
+
+
+/* Ensure the root variables from the header CSS are present or defined here */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #007bff;
+    --font-family: 'Inter', sans-serif;
+}
+
+/* --------------------
+    MY WORK SECTION STYLES
+-------------------- */
+
+.work-section {
+    padding: 80px 20px;
+    background-color: #ffffff; 
+}
+
+/* Section Heading Style */
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+}
+
+/* Grid Container */
+.work-grid {
+    display: grid;
+    /* Default: 2x2 grid on large screens */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Spacing between cards */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styling */
+.work-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft initial shadow */
+    overflow: hidden; /* Ensures image corners are rounded with the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+/* Card Hover Effect */
+.work-card:hover {
+    transform: translateY(-8px) scale(1.01); /* Noticeable lift and scale-up */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Highlighted shadow */
+}
+
+/* Image Container */
+.card-image-wrapper {
+    width: 100%;
+    /* Fixed aspect ratio (e.g., 3:2) for consistent card heights */
+    height: 0; 
+    padding-bottom: 60%; /* This is a common aspect ratio (60% of width = 3/5, or 100/1.66) */
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image scales without distortion/squishing */
+    transition: transform 0.5s ease;
+}
+
+/* Subtle zoom effect on image within the card hover */
+.work-card:hover img {
+    transform: scale(1.05); 
+}
+
+/* Card Text Content */
+.card-content {
+    padding: 25px;
+    display: flex; 
+    flex-direction: column;
+    height: 100%; 
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #6a6a6a;
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes the link to the bottom */
+    margin-bottom: 15px;
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: auto; /* Aligns the link to the bottom */
+}
+
+.card-link:hover {
+    text-decoration: underline;
+    color: #0056b3; 
+}
+
+
+/* --------------------
+    RESPONSIVENESS
+-------------------- */
+
+/* Tablet View: 2 columns */
+@media (max-width: 992px) {
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 25px;
+    }
+}
+
+/* Mobile View: 1 column stack */
+@media (max-width: 650px) {
+    .work-section {
+        padding: 50px 15px;
+    }
+    
+    .section-heading {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .work-grid {
+        /* Stacked: 1 column */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+}
+
+
+
+
+
+/* Ensure the root variables from previous sections are present */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #007bff;
+    --font-family: 'Inter', sans-serif;
+    
+    /* Optional Brand Colors for better visual recognition */
+    --color-instagram: #E1306C;
+    --color-linkedin: #0077B5;
+    --color-facebook: #1877F2;
+    --color-behance: #053EFF;
+    --color-medium: #000000;
+}
+
+/* --------------------
+    SOCIAL SECTION STYLES
+-------------------- */
+
+.social-section {
+    padding: 80px 20px;
+    background-color: var(--secondary-color); /* Light background for separation */
+}
+
+/* Section Heading Style */
+.social-section .section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+}
+
+/* Grid Container */
+.social-grid {
+    display: grid;
+    /* Default: 3 columns on large screens */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Spacing between cards */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styling */
+.social-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft initial shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Card Hover Effect */
+.social-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Slight lift and scale-up */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Highlighted shadow */
+}
+
+/* Icon Styling */
+.platform-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    line-height: 1; /* Ensure emoji icons are centered vertically */
+}
+
+.platform-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.platform-tagline {
+    font-size: 0.95rem;
+    color: #6a6a6a;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+/* Link/Button Styling */
+.social-link {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: auto; /* Aligns buttons at the bottom */
+}
+
+/* Button Colors (Optional Brand Colors) */
+.instagram-btn { background-color: var(--color-instagram); }
+.facebook-btn { background-color: var(--color-facebook); }
+.linkedin-btn { background-color: var(--color-linkedin); }
+.behance-btn { background-color: var(--color-behance); }
+.medium-btn { background-color: var(--color-medium); }
+.blog-btn { background-color: var(--accent-color); }
+
+.social-link:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+/* --------------------
+    RESPONSIVENESS
+-------------------- */
+
+/* Tablet View: 2 columns */
+@media (max-width: 992px) {
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 25px;
+    }
+}
+
+/* Mobile View: 1 column stack */
+@media (max-width: 600px) {
+    .social-section {
+        padding: 50px 15px;
+    }
+    
+    .social-section .section-heading {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .social-grid {
+        /* Stacked: 1 column */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .platform-icon {
+        font-size: 2rem;
+    }
+    
+    .social-card {
+        padding: 20px;
+    }
+}
+
+
+
+/* --------------------
+    FOOTER SECTION STYLES
+-------------------- */
+
+.portfolio-footer {
+    /* Dark Theme */
+    background-color: var(--primary-color); /* Assuming --primary-color is a dark color like #1a1a1a */
+    color: #f0f0f0; /* Light text for contrast */
+    padding: 40px 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top separator */
+    font-family: var(--font-family);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Space out the three main columns */
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+/* Left Side: Brand/Name */
+.footer-brand .brand-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+/* Center: Quick Links */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Vertical spacing for links */
+    min-width: 150px;
+}
+
+.footer-link {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+/* Right Side: Contact */
+.footer-contact {
+    text-align: right;
+}
+
+.footer-contact p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contact-link {
+    display: block;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--accent-color);
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end; /* Align icons to the right */
+}
+
+.social-icon {
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Bottom Copyright */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+
+/* --------------------
+    RESPONSIVENESS
+-------------------- */
+
+/* Tablet View: Stack Contact/Social to a new line */
+@media (max-width: 768px) {
+    .footer-content {
+        /* Align items to the center for better stacking */
+        align-items: center; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 30px;
+    }
+
+    /* Keep Brand and Nav side-by-side (if space allows) */
+    .footer-brand,
+    .footer-nav {
+        flex-basis: 45%; /* Give them space to sit next to each other */
+        max-width: 250px;
+    }
+    
+    .footer-contact {
+        /* Take up full width below */
+        flex-basis: 100%; 
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center; /* Center icons when contact is centered */
+    }
+}
+
+/* Mobile View: Stack all elements vertically and center */
+@media (max-width: 500px) {
+    .portfolio-footer {
+        padding: 30px 20px 15px;
+    }
+
+    .footer-content {
+        flex-direction: column; /* Stack vertically */
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-brand,
+    .footer-nav,
+    .footer-contact {
+        flex-basis: 100%;
+    }
+
+    .footer-nav {
+        align-items: center; /* Center navigation links */
+        gap: 12px;
+    }
+
+    .footer-contact p, 
+    .contact-link {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+/* Ensure the root variables from previous sections are present */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #007bff;
+    --font-family: 'Inter', sans-serif; /* For general text */
+    --monospace-font: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', monospace; /* Modern monospace */
+}
+
+/* --------------------
+    HERO TYPING SECTION STYLES
+-------------------- */
+
+.hero-typing-section {
+    width: 100%;
+    /* Min-height to ensure it takes up sufficient space even with short text */
+    min-height: 400px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color); /* Dark background for code-like feel */
+    color: #e0e0e0; /* Light text color */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.typing-container {
+    text-align: center;
+    max-width: 90%; /* Prevent text from touching edges on very wide screens */
+}
+
+#typed-text {
+    font-family: var(--monospace-font); /* Monospace for code-like effect */
+    font-size: 2.8rem; /* Large font size for desktop */
+    font-weight: 200;
+    white-space: pre-wrap; /* Ensure text wraps but maintains custom spacing */
+    word-break: break-word;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    color: #e0e0e0; /* Match container text color */
+}
+
+/* Blinking Cursor */
+.typing-cursor {
+    display: inline-block; /* Make it respect text line-height */
+    background-color: #e0e0e0; /* Color of the cursor */
+    width: 3px; /* Cursor thickness */
+    height: 1.4em; /* Match line-height of the text */
+    vertical-align: middle; /* Align with text baseline */
+    margin-left: 5px; /* Space between text and cursor */
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+/* --------------------
+    RESPONSIVENESS
+-------------------- */
+
+@media (max-width: 992px) {
+    .hero-typing-section {
+        min-height: 350px;
+    }
+    #typed-text {
+        font-size: 2.2rem; /* Adjust for tablets */
+    }
+    .typing-cursor {
+        height: 1.3em;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-typing-section {
+        min-height: 300px;
+        padding: 15px;
+    }
+    #typed-text {
+        font-size: 1.6rem; /* Adjust for mobile */
+        line-height: 1.3;
+    }
+    .typing-cursor {
+        height: 1.2em;
+        width: 2px;
+    }
+}
+
+@media (max-width: 400px) {
+    #typed-text {
+        font-size: 1.3rem; /* Further adjustment for small phones */
+    }
+}
