@@ -868,6 +868,7 @@ body {
     color: #e0e0e0; /* Light text color */
     padding: 20px;
     box-sizing: border-box;
+    border-radius: 20px;
 }
 
 .typing-container {
