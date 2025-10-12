@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Define the lines of text to be typed
     const textLines = [
-        "Hi, I'm Nittyshry Prabhu [Nitish Prabhu Singh].",
-        "A Engineering Student",
-        "A Creative Writer"
+        "HI, I'M NITTYSHRY PRABHU [NITISH PRABHU SINGH]",
+        "AN ENGINEERING STUDENT",
+        "A CREATIVE WRITER"
     ];
 
     const typingSpeed = 70;   // Speed of typing each character (ms)
