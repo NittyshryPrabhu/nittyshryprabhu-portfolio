@@ -846,7 +846,7 @@ body {
 
 /* Ensure the root variables from previous sections are present */
 :root {
-    --primary-color: rgb(27, 18, 16);
+    --primary-color: rgb(255, 0, 0);
     --secondary-color: #f0f0f0;
     --accent-color: #007bff;
     --font-family: 'Inter', sans-serif; /* For general text */

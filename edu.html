@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Nittyshry Prabhu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        ========================================
+        CSS STYLES
+        ========================================
+        */
+        :root {
+            --primary-color:  rgb(255, 24, 24);
+            --secondary-color: #f0f0f0;
+            --accent-color: #007bff;
+            --font-family: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: #ffffff;
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        /* --- Section Layout --- */
+        .about-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh; /* Ensure section takes up some space */
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+
+        /* --- Cards Grid --- */
+        .about-grid {
+            display: grid;
+            /* Desktop: 3 columns (5 cards + 1 placeholder for symmetry) */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* State when detail view is active */
+        .about-grid.hidden {
+            display: none;
+        }
+        
+        /* --- Card Styling --- */
+        .about-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: #6a6a6a;
+            flex-grow: 1; 
+        }
+
+        /* --- Detail Content Section --- */
+        .detail-container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease;
+            display: none; /* Hidden by default */
+        }
+
+        .detail-container.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        .detail-heading {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .detail-content {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            white-space: pre-wrap; /* Respect newlines in content */
+        }
+        
+        /* Close Button */
+        .close-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        /*
+        ========================================
+        RESPONSIVENESS
+        ========================================
+        */
+
+        /* Tablet View: 2 columns */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        /* Mobile View: 1 column stack */
+        @media (max-width: 650px) {
+            .about-section {
+                padding: 40px 15px;
+            }
+            .section-heading {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .detail-container {
+                padding: 20px;
+                margin-top: 30px;
+            }
+            .detail-heading {
+                font-size: 1.5rem;
+            }
+            .detail-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="about-section">
+        <h2 class="section-heading">Educational Journey</h2>
+
+        <div class="about-grid" id="aboutGrid">
+
+            <div class="about-card" data-topic="intro">
+              
+                <h3 class="card-title">Early Childhood Education</h3>
+                <p class="card-description">Early learning stage where I attend Anganwadi or nursery schools to develop basic speaking, counting, and social skills through fun activities.</p>
+            </div>
+
+            <div class="about-card" data-topic="hobby">
+                
+                <h3 class="card-title">Primary Education</h3>
+                <p class="card-description">I learn reading, writing, basic math, and general awareness. This builds the foundation for future learning in government or private schools.</p>
+            </div>
+
+            <div class="about-card" data-topic="aim">
+           
+                <h3 class="card-title">Secondary Education</h3>
+                <p class="card-description">I prepare for the Matriculation Exam under the Bihar School Examination Board (BSEB). Focus is on strengthening core subjects for future career choices.</p>
+            </div>
+
+            <div class="about-card" data-topic="partner">
+                
+                <h3 class="card-title">Higher Secondary / Intermediate Education</h3>
+                <p class="card-description">I choose a stream — Science based on my interest. This stage decides the direction of higher studies or professional goals.</p>
+            </div>
+
+            <div class="about-card" data-topic="experience">
+               
+                <h3 class="card-title">Higher Education</h3>
+                <p class="card-description">I'm pursuing college degrees B.Tech., or professional courses in universities such as AKTU University </p>
+            </div>
+            
+            
+
+        </div>
+
+        <div class="detail-container" id="detailContainer">
+            <h3 class="detail-heading" id="detailTitle"></h3>
+            <pre class="detail-content" id="detailContent"></pre>
+            <button class="close-btn" onclick="hideDetail()">Go Back to Overview</button>
+        </div>
+
+    </section>
+ 
+    <script>
+        /*
+        ========================================
+        JAVASCRIPT LOGIC
+        ========================================
+        */
+        
+        // Data Structure for dynamic content
+        // NOTE: This structure is easy to replace with a JSON fetch later!
+        const detailedContent = {
+            intro: {
+                title: "My Introduction:",
+                content: `
+Nittyshry Prabhu [ Nitish Prabhu Singh ]
+
+Born      : 28 January, 2005 [ Bhagalpur Bihar,India ]
+
+Education : AKTU,India(2023-202x) [ B.Tech, Computer Science and Engineering(AI ML) ]
+Schooling : BSEB (2010-2023)
+
+Passion   : [ Writing ], [ Imagineer ], [ Engineering ]
+
+Parent    : Prabhu Singh, Sushila Prabhu Singh
+
+Siblings  : [ Priyanka, Akshprabhu ]
+
+
+I’ve written two books,
+
+1. A Diary [ A Lot Words ]
+2. Slip of Mind's Pen`
+            },
+            hobby: {
+                title: "Hobbies:",
+                content: `
+                
+Creative Expression
+    I love writing, storytelling, and creating content that reflects my thoughts and feelings.
+
+Self-Reflection
+    I spend time thinking about life, my choices, and the direction I want to take.
+
+Inspiration from Details
+    Small moments, my surroundings, and emotions often spark my creativity.
+
+Life Design
+    I enjoy planning, managing, and shaping my life while staying ready for the unpredictable.
+
+Art & Aesthetics
+    I’m drawn to colors, visuals, and anything that lets me express creativity.
+
+Learning & Growth
+    I always strive to improve myself and expand my skills as a creator and a person.
+
+Coding Passion Projects: 
+    I enjoy building web apps and tools that combine my love for coding and creativity.
+`
+            },
+            aim: {
+                title: "My Aim: ",
+                content: `
+                
+Follow My Creative Calling
+    To build a life around content creation, storytelling, and self-expression.
+
+Live Life on My Own Terms
+    To design and manage my life with freedom, discipline, and self-awareness.
+
+Grow Continuously
+    To keep learning new skills, improving myself, and becoming a better creator and human being.
+
+Find True Happiness
+    To choose the path that gives me peace, joy, and meaning — not just success on paper.
+
+Turn Challenges Into Strength
+    To face unpredictable situations with courage and turn them into opportunities for growth.
+
+Inspire Others
+    To share my journey in a way that motivates people to believe in themselves and follow their own path.`
+            },
+            partner: {
+                title: "Thoughts on My Life Partner",
+                content: `
+
+
+Simple yet graceful 
+    not showy, but naturally beautiful in the way she lives.
+
+Smart but humble 
+    intelligent, but never arrogant.
+
+Kind and respectful 
+    treats others with the same respect she wants for herself.
+
+Emotionally understanding 
+    someone who can feel my emotions, even when I don’t speak.
+
+Honest and genuine 
+    real, not fake; her truth is her greatest strength.
+
+Romantic yet grounded 
+    knows how to create love in small moments, but also stays strong in tough times.
+
+Supportive of dreams 
+    inspires me to believe in myself and never give up.
+
+A teacher and a companion   
+    someone who helps me grow, but also walks beside me in every step.`
+            },
+            experience: {
+                title: "My Life Experience: A Journey of Resilience",
+                content: `
+
+When I look back at my journey, I see not just years, but a chain of surprises that shaped me into who I am today. Every stage of life has carried its own lessons, its own struggles, and its own hidden beauty.
+
+Birth: 
+    My life began with rain falling hard outside, when I was born at home instead of a hospital. Even from the start, I was different from my siblings. God kept me safe, and that first surprise gave me my first reason for gratitude.
+
+Childhood: 
+    As the first son, I carried both love and responsibility. My parents gave me the chance to study in a private hostel, something no one in my family had before me. With my badi didi by my side, my childhood was filled with laughter and shared memories.
+
+Teenage: 
+    I grew up with simplicity — sometimes with only two sets of clothes to wear, carrying shyness and low confidence. Yet, teenage also gave me people who changed my life: Riya, who taught me love, respect, and understanding, and Nitish, my closest friend, who still remains by my side.
+
+College: 
+    I stepped into engineering, even though I once believed education was a scam. Life surprised me again by placing me in CSE (AIML). Hostel life, however, was not what I dreamed of. Friendships were hard, roommates often troubled me, and struggles became a daily part of my routine. Yet, my ambition — to become great and successful — keeps my hope alive.
+
+Life Lessons: 
+    Every step has taught me something: behind every light, there is a hidden story. Behind every struggle, there is a lesson. Behind every relationship, there is a truth we may or may not see. These lessons keep me moving forward, even when life feels uncertain.
+
+Through all these experiences, one truth has never left me: life will always surprise us. Sometimes with joy, sometimes with struggle, sometimes with love, and sometimes with pain. But every surprise is a teacher, every experience is a gift.
+
+And so, when I think about my journey, I smile and say once more:
+    I am surprised again.`
+            },
+            future: {
+                title: "Future Focus: Dedicated Learning",
+                content: `
+                
+Creative Career
+    Building a strong path in content creation, storytelling, and digital expression.
+
+Self-Growth
+    Continuously improving my skills, knowledge, and mindset to become my best version.
+
+Financial Freedom
+    Creating multiple income sources so I can live life independently and on my own terms.
+
+Peace & Happiness
+    Choosing paths that bring me inner satisfaction and not just outer success.
+
+Strong Relationships
+    Surrounding myself with people who respect, support, and inspire me.
+
+Contribution
+    Using my journey to inspire and help others find their own path in life.`
+            }
+        };
+
+        const aboutGrid = document.getElementById('aboutGrid');
+        const detailContainer = document.getElementById('detailContainer');
+        const detailTitle = document.getElementById('detailTitle');
+        const detailContent = document.getElementById('detailContent');
+        const section = document.querySelector('.about-section');
+
+        // --- Core Functions ---
+
+        function showDetail(topicKey) {
+            const content = detailedContent[topicKey];
+            if (!content) return;
+
+            // 1. Load Content
+            detailTitle.textContent = content.title;
+            detailContent.textContent = content.content; // Use textContent for <pre> tag
+
+            // 2. Animate View Change
+            aboutGrid.classList.add('hidden');
+            detailContainer.classList.add('visible');
+            
+            // 3. Scroll to the top of the detail section
+            // Use requestAnimationFrame for smoother scroll after content load
+            window.requestAnimationFrame(() => {
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        window.hideDetail = function() {
+            // 1. Hide Content
+            detailContainer.classList.remove('visible');
+
+            // 2. Animate View Change
+            setTimeout(() => {
+                aboutGrid.classList.remove('hidden');
+            }, 300); // Small delay to allow fade out before showing grid
+        };
+
+        // --- Event Listener Attachment ---
+
+        document.querySelectorAll('.about-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const topic = this.getAttribute('data-topic');
+                showDetail(topic);
+            });
+        });
+    </script>
+</body>
+</html>
