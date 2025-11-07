@@ -1,14 +1,73 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>My Marksheet</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects</title>
+  <meta name="description" content="Processing page with modern responsive loading animation." />
   <style>
-    body { text-align: center; background-color: #f4f4f4; padding: 40px; }
-    img { width: 90%; max-width: 700px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+    :root {
+      --accent: #0ea5a4;
+      --dark: #0b1220;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%);
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--dark);
+    }
+    .loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 6px solid rgba(14,165,164,0.3);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .spinner { width: 55px; height: 55px; border-width: 5px; }
+      h1 { font-size: 20px; }
+      p { font-size: 14px; }
+    }
   </style>
 </head>
 <body>
-  <h2>My Marksheet</h2>
-  <img src="Image/12thmarksheet.png" alt="My Marksheet">
+  <div class="loader">
+    <div class="spinner"></div>
+    <h1>Processing...</h1>
+    <p>Please wait a moment while we complete your request.</p>
+  </div>
 </body>
 </html>
