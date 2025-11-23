@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Education System - NEP 2020 with AI & Digital Focus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --ai-color: #9b59b6;
+            --digital-color: #1abc9c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --info: #2980b9;
+            --border-radius: 12px;
+            --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        .ai-badge {
+            display: inline-block;
+            background: var(--ai-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            vertical-align: super;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            width: 30%;
+            min-width: 250px;
+            margin-bottom: 1rem;
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .feature.ai i {
+            color: var(--ai-color);
+        }
+
+        .feature.digital i {
+            color: var(--digital-color);
+        }
+
+        .feature h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Timeline Styles */
+        .timeline-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--secondary);
+            transform: translateX(-50%);
+        }
+
+        .stage {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .stage.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stage-content {
+            position: relative;
+            width: 45%;
+            padding: 1.8rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 5px solid;
+        }
+
+        .stage-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stage:nth-child(odd) .stage-content {
+            left: 0;
+        }
+
+        .stage:nth-child(even) .stage-content {
+            left: 55%;
+        }
+
+        .stage::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .stage:nth-child(odd)::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stage:nth-child(even)::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stage-title {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .stage-title i {
+            margin-right: 10px;
+        }
+
+        .stage-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .stage-details {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .stage-features {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .stage-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .stage-features li:last-child {
+            border-bottom: none;
+        }
+
+        .stage-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .tech-highlights {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--digital-color);
+        }
+
+        .tech-highlights h4 {
+            color: var(--digital-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-highlights h4 i {
+            margin-right: 8px;
+        }
+
+        .tech-highlights ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .tech-highlights li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tech-highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--ai-color);
+        }
+
+        /* Color coding for different stages */
+        .stage:nth-child(1) .stage-content {
+            border-top-color: #e74c3c;
+        }
+
+        .stage:nth-child(2) .stage-content {
+            border-top-color: #3498db;
+        }
+
+        .stage:nth-child(3) .stage-content {
+            border-top-color: #2ecc71;
+        }
+
+        .stage:nth-child(4) .stage-content {
+            border-top-color: #f39c12;
+        }
+
+        .stage:nth-child(5) .stage-content {
+            border-top-color: #9b59b6;
+        }
+
+        /* Digital Initiatives Section */
+        .initiatives {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .initiative-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--digital-color);
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .initiative-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .initiative-card h3 i {
+            margin-right: 10px;
+            color: var(--digital-color);
+        }
+
+        .initiative-card p {
+            margin-bottom: 1rem;
+        }
+
+        .initiative-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .initiative-card .tag {
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2.5rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .stage-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+            
+            .stage:nth-child(even) .stage-content {
+                left: 0;
+            }
+            
+            .stage::after {
+                left: 30px !important;
+                transform: translateX(0) !important;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin: 0 0.7rem;
+            }
+            
+            .feature {
+                width: 100%;
+            }
+            
+            .hero h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Child's Knowledge Evolution<span class="ai-badge">AI Enhanced</span></h1>
+            <p>Birth to Age 18 - Preparing for a Digital Future</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+            Child's Knowledge Evolution
+            </div>
+            <ul class="nav-links">
+                <li><a href="#timeline">Education Stages</a></li>
+                <li><a href="#digital-initiatives">Digital Initiatives</a></li>
+                <li><a href="#digital-initiatives">AI in Education</a></li>
+            
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Transforming Education for the Digital Age</h2>
+            <p>Education is shifting toward holistic growth, critical thinking, and technology-enabled learning for the future.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI-Powered Learning</h3>
+                    <p>Personalized learning paths powered by artificial intelligence</p>
+                </div>
+                <div class="feature digital">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Digital Classrooms</h3>
+                    <p>Interactive digital content and virtual learning environments</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Future Skills</h3>
+                    <p>Focus on coding, data science, and digital literacy from early years</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-section" id="timeline">
+            <h2 class="section-title">Education Stages </h2>
+            <div class="timeline">
+                <!-- Timeline stages will be added by JavaScript -->
+            </div>
+        </section>
+
+        <section class="timeline-section" id="digital-initiatives">
+            <h2 class="section-title">Digital Education Initiatives</h2>
+            <div class="initiatives">
+                <div class="initiative-card">
+                    <h3><i class="fas fa-desktop"></i> Digital Infrastructure</h3>
+                    <p>Expanding high-speed internet access to all educational institutions and developing digital repositories for educational content.</p>
+                    <div class="tags">
+                        <span class="tag">EdTech</span>
+                        <span class="tag">Connectivity</span>
+                        <span class="tag">Digital Content</span>
+                    </div>
+                </div>
+                <div class="initiative-card">
+                    <h3><i class="fas fa-robot"></i> AI Learning Assistants</h3>
+                    <p>AI-powered tools that provide personalized learning experiences, adaptive assessments, and instant feedback to students.</p>
+                    <div class="tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Personalization</span>
+                        <span class="tag">Adaptive Learning</span>
+                    </div>
+                </div>
+                <div class="initiative-card">
+                    <h3><i class="fas fa-vr-cardboard"></i> Virtual Labs</h3>
+                    <p>Immersive virtual and augmented reality experiences for practical learning in science, technology, and vocational subjects.</p>
+                    <div class="tags">
+                        <span class="tag">VR/AR</span>
+                        <span class="tag">Experiential Learning</span>
+                        <span class="tag">Labs</span>
+                    </div>
+                </div>
+            </div>
+
+           
+        </section>
+
+        <section class="timeline-section" id="digital-initiatives">
+            
+            <div class="initiatives">
+                <!-- Save as logo-card.html and open in a browser -->
+
+
+  <article class="nlogo-card" aria-labelledby="name-heading" role="group">
+    <div class="nlogo" aria-hidden="true">
+      <!-- Replace the src with the logo or avatar URL. Prefer square PNG/SVG. -->
+      <img style="width: 150px; height: 100px; border-radius: 100px;" src="Image/logo.jpg" alt="Logo / avatar of Nittyshry Prabhu">
+    </div>
+
+    <div class="meta">
+      <h1 id="name-heading" class="name">Nittyshry Prabhu
+        <!-- optional small verified / tagline -->
+        <span style="font-weight:500;font-size:0.78rem;color:var(--muted)">· Imagineer</span>
+      </h1>
+
+     
+      </div>
+    </div>
+  </article>
+
+
+
+               
+            </div>
+
+           
+        </section>
+
+    
+    </main>
+
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+
+                <h3 style="color: rgb(25, 129, 213)">Planning in Progressing...<Progress></Progress></h3>
+                <!-- <div class="footer-section">
+                    <h3>About NEP 2020</h3>
+                    <p>The National Education Policy 2020 is a comprehensive framework to guide the development of education in India. It aims to transform the education system to meet the needs of 21st century India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#timeline">Education Stages</a></li>
+                        <li><a href="#digital-initiatives">Digital Initiatives</a></li>
+                        <li><a href="#ai-integration">AI in Education</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div> -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Child's Knowledge Evolution</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Education stages data with AI/digital components
+            const stages = [
+                {
+                    title: "Informal Stage",
+                    subtitle: "Ages 0-3",
+                    details: "Home / Creche / Daycare",
+                    features: [
+                        "Basic Literacy & Numeracy",
+                        "No rigid exams",
+                        "Interactive digital learning apps",
+                        "AI-powered developmental tracking"
+                    ],
+                    tech: [
+                        "Educational apps with voice recognition",
+                        "AI-based progress monitoring",
+                        "Digital parent-teacher communication platforms"
+                    ],
+                    icon: "fas fa-baby"
+                },
+                {
+                    title: "Foundational Stage",
+                    subtitle: "Ages 3-8 | 5 Years",
+                    details: "Ages 3-6: Preschool / Anganwadi (Nursery, LKG, UKG)<br>Ages 6-8: Primary School (Class 1-2)",
+                    features: [
+                        "Play-based Learning",
+                        "Socializing",
+                        "Introduction to digital devices",
+                        "Basic coding concepts through games"
+                    ],
+                    tech: [
+                        "Interactive smartboards in classrooms",
+                        "Gamified learning platforms",
+                        "AI-assisted pronunciation correction",
+                        "Digital storytelling tools"
+                    ],
+                    icon: "fas fa-puzzle-piece"
+                },
+                {
+                    title: "Preparatory Stage",
+                    subtitle: "Ages 8-11 | 3 Years",
+                    details: "Class 3 to 5",
+                    features: [
+                        "Discovery & Activity-based",
+                        "Mother Tongue introduction",
+                        "Formal Subjects begin",
+                        "Digital literacy curriculum"
+                    ],
+                    tech: [
+                        "Personalized learning paths using AI",
+                        "Virtual field trips",
+                        "Online collaborative projects",
+                        "Introduction to programming with visual tools"
+                    ],
+                    icon: "fas fa-search"
+                },
+                {
+                    title: "Middle Stage",
+                    subtitle: "Ages 11-14 | 3 Years",
+                    details: "Class 6 to 8",
+                    features: [
+                        "Critical Thinking",
+                        "Vocational Skills",
+                        "Internships",
+                        "Subject Teachers",
+                        "Data literacy introduction"
+                    ],
+                    tech: [
+                        "AI-powered research assistants",
+                        "Virtual science labs",
+                        "Online coding platforms",
+                        "Digital portfolio development"
+                    ],
+                    icon: "fas fa-cogs"
+                },
+                {
+                    title: "Secondary Stage",
+                    subtitle: "Ages 14-18 | 4 Years",
+                    details: "Class 9 to 12 (Multidisciplinary)",
+                    features: [
+                        "No rigid streams",
+                        "Choice of Subjects",
+                        "Critical Analysis",
+                        "Board Exams (Easier, Core Concepts)",
+                        "AI and data science electives"
+                    ],
+                    tech: [
+                        "AI-based career guidance systems",
+                        "Virtual internships",
+                        "Advanced programming courses",
+                        "Digital certification and blockchain credentials"
+                    ],
+                    icon: "fas fa-graduation-cap"
+                }
+            ];
+
+            // Generate timeline HTML
+            const timeline = document.querySelector('.timeline');
+            
+            stages.forEach((stage, index) => {
+                const stageElement = document.createElement('div');
+                stageElement.className = 'stage';
+                
+                stageElement.innerHTML = `
+                    <div class="stage-content">
+                        <h2 class="stage-title"><i class="${stage.icon}"></i> ${stage.title}</h2>
+                        <h3 class="stage-subtitle">${stage.subtitle}</h3>
+                        <div class="stage-details">${stage.details}</div>
+                        <ul class="stage-features">
+                            ${stage.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <div class="tech-highlights">
+                            <h4><i class="fas fa-microchip"></i> Digital & AI Integration</h4>
+                            <ul>
+                                ${stage.tech.map(tech => `<li>${tech}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                
+                timeline.appendChild(stageElement);
+            });
+
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all stage elements
+            document.querySelectorAll('.stage').forEach(stage => {
+                observer.observe(stage);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
